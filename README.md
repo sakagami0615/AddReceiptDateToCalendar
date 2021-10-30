@@ -5,8 +5,7 @@
 Amazonで商品を購入した際に届くメールを確認し、お届け日をGoogleカレンダーの予定に追加します。<br>
 (Google Apps Scriptを使用)
 
-![tool-img](img/tool.png)
-
+![tool-img](https://github.com/sakagami0615/AddReceiptDateToCalendar/raw/image/img/tool.png)
 <br>
 
 ## **2.前提条件**
