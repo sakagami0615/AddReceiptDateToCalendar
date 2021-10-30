@@ -6,6 +6,8 @@ Amazonで商品を購入した際に届くメールを確認し、お届け日�
 (Google Apps Scriptを使用)
 
 ![tool-img](https://github.com/sakagami0615/AddReceiptDateToCalendar/raw/image/img/tool.png)
+※メールとカレンダーの日付がずれていますが、気にしないでください…
+
 <br>
 
 ## **2.前提条件**
