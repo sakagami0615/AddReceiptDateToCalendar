@@ -2,19 +2,19 @@
 // 文字列の日付情報をDate型に変換
 // timeがnullの場合は、時間指定無しのDate変数を作成する
 //--------------------------------------------------------------------------------
-function string2Date(day_str, time_str) {
+function string2Date(dayString, timeString) {
 
-    let day_split = day_str.split('/');
-    let year = Number(day_split[0])
-    let month = Number(day_split[1]) - 1;   // 月は0を1月として扱うため、-1する必要がある
-    let day = Number(day_split[2]);
+    let daySplit = dayString.split('/');
+    let year = Number(daySplit[0])
+    let month = Number(daySplit[1]) - 1;   // 月は0を1月として扱うため、-1する必要がある
+    let day = Number(daySplit[2]);
 
     let date = null;
 
-    if (time_str != null) {
-        let time_split = time_str.split(':');
-        let hour = Number(time_split[0]);
-        let min = Number(time_split[1]);
+    if (timeString != null) {
+        let timeSplit = timeString.split(':');
+        let hour = Number(timeSplit[0]);
+        let min = Number(timeSplit[1]);
         date = new Date(year, month, day, hour, min);
     } else {
         date = new Date(year, month, day);
@@ -27,18 +27,20 @@ function string2Date(day_str, time_str) {
 //--------------------------------------------------------------------------------
 // カレンダーに予定を追加
 //--------------------------------------------------------------------------------
-function addGoogleCalender(add_info) {
+function addGoogleCalender(addInfo) {
 
     const calendar = CalendarApp.getDefaultCalendar();
     const option = {
-        description: add_info.detail
+        description: addInfo.detail
     }
 
     // 終日イベントの判定
-    if (add_info.end_date == null) {
-        calendar.createAllDayEvent(add_info.title, add_info.begin_date, option)
+    if (addInfo.end_date == null) {
+        const event = calendar.createAllDayEvent(addInfo.title, addInfo.beginDate, option);
+        event.setColor(addInfo.color);
     }
     else {
-        calendar.createEvent(add_info.title, add_info.begin_date, add_info.end_date, option);
+        const event = calendar.createEvent(addInfo.title, addInfo.beginDate, addInfo.endDate, option);
+        event.setColor(addInfo.color);
     }
 }
