@@ -109,13 +109,12 @@ class NoshProcess extends NoshParam {
             let eventTitle = events[i].getTitle();
             let eventColor = events[i].getColor();
 
-            // 色が異なる場合は、カレンダーの予定を削除する
             // カレンダーにあり色も一致する場合は、カレンダーの予定をそのままにしてスキップする
-            if (eventTitle == this.CALENDAR_TITLE && eventColor == this.CALENDAR_COLOR) {
+            if (eventTitle == this.EVENT_TITLE && eventColor == this.EVENT_COLOR) {
                 return true;
             }
             // カレンダーにあるが色が異なる場合は、カレンダーの予定を削除して新たに予定を追加する
-            if (eventTitle == this.CALENDAR_TITLE && eventColor != this.CALENDAR_COLOR) {
+            if (eventTitle == this.EVENT_TITLE && eventColor != this.EVENT_COLOR) {
                 events[i].deleteEvent();
                 return false;
             }
@@ -157,7 +156,6 @@ class NoshProcess extends NoshParam {
      */
     ResistReceiptInfos2Calendar(receiptInfos) {
         receiptInfos.forEach((receipt, index) => {
-            // 既に登録されている注文であればスキップ
             // 既に登録されている注文であればスキップ
             if (this.IsEnableCalender(receipt)) return;
 
